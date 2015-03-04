@@ -8,10 +8,12 @@
 </head>
 <body>
   <% flash.each do |type, message| %>
-  <div class="alert">
-    <%= message %>
-  </div>
-<% end %>
+    <% unless type == "notice" %>
+      <div class="alert">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
   <ul class="hmenu">
 <% if user_signed_in? %>
   <li>
