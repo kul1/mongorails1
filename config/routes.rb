@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   
 
+  # resources :authors
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :posts do
     resources :comments
+  end
+  resources :posts do
+    resources :authors
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
